@@ -16,13 +16,23 @@ public class CuentaCorriente extends Cuenta
         super();
         acuerdo = 0;
     }
+
+    public double getAcuerdo()
+    {
+        return acuerdo;
+    }
+
+    public void setAcuerdo(double acuerdo)
+    {
+        this.acuerdo = acuerdo;
+    }
     
     @Override
     public void extraer(double monto)
     {
-        if(saldo - monto >= -acuerdo)
+        if(saldo + acuerdo >= monto)
         {
-            saldo = saldo - monto;
+            saldo -= monto;
         }
     }
      

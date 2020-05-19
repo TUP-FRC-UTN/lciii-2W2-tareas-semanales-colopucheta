@@ -1,11 +1,11 @@
 
 package ej2banco;
 
-public class Cuenta
+public abstract class Cuenta
 {
-    private int numero;
-    private String nombre;
-    double saldo;
+    protected int numero;
+    protected String nombre;
+    protected double saldo;
     
     public Cuenta()
     {
@@ -25,15 +25,33 @@ public class Cuenta
     {
         this.nombre = nombre;
     }
-    
-    public void extraer(double monto)
+
+    public void setNumero(int numero)
     {
-        saldo = saldo - monto;  
+        this.numero = numero;
     }
+
+    public int getNumero()
+    {
+        return numero;
+    }
+
+    public String getNombre()
+    {
+        return nombre;
+    }
+
+    public double getSaldo()
+    {
+        return saldo;
+    }
+    
+    public abstract void extraer(double monto);
+
     
     public void depositar(double monto)
     {
-        saldo = saldo + monto;  
+        saldo += monto;
     }
     
     @Override
